@@ -19,20 +19,13 @@ public class UsuarioServico {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
-    public void validarUsuario(Usuario usuario, double valorTransferencia) throws Exception {
-        if(usuario.getSaldo() < 0 ){
-            throw new Exception("Usuário não possui saldo suficiente");
-        }
-
-        if(usuario.getSaldo() < valorTransferencia){
-            throw new Exception("Usuário não possui saldo suficiente");
-        }
+    public Boolean validarUsuario(Usuario usuario, double valorTransferencia) throws Exception {
+        if(usuario.getSaldo() < 0 || usuario.getSaldo() < valorTransferencia) return false;
+        return true;
     }
 
-    public void validarTipoUsuario(Usuario usuario) throws Exception{
-        if(usuario.getTipo().equals(TipoUsuarioEnum.LOJISTA)){
-            throw new TypeUserException();
-        }
+    public Boolean validarTipoUsuario(Usuario usuario) throws Exception{
+        return !usuario.getTipo().equals(TipoUsuarioEnum.LOJISTA);
     }
 
     public Usuario findById(Integer id) throws Exception {
@@ -47,6 +40,5 @@ public class UsuarioServico {
         Usuario novoUsuario = new Usuario(usuario);
         return usuarioRepositorio.save(novoUsuario);
     }
-
 
 }
