@@ -1,5 +1,6 @@
 package com.luisfelipebp.servico;
 
+import com.luisfelipebp.exception.TypeUserException;
 import com.luisfelipebp.modelo.DTO.TransferenciaDTO;
 import com.luisfelipebp.modelo.Transferencia;
 import com.luisfelipebp.modelo.Usuario;
@@ -30,17 +31,25 @@ public class TransferenciaServico {
 
 
     public Transferencia validarTransferencia(TransferenciaDTO transferenciaDTO) throws Exception{
-
         Usuario payee = usuarioServico.findById(transferenciaDTO.payee_id());
         Usuario payer = usuarioServico.findById(transferenciaDTO.payer_id());
 
-        usuarioServico.validarUsuario(payer, transferenciaDTO.valorTransferencia());
-        usuarioServico.validarTipoUsuario(payer);
+        Boolean usuarioValido = usuarioServico.validarUsuario(payer, transferenciaDTO.valorTransferencia());
+        Boolean tipoUsuarioValido = usuarioServico.validarTipoUsuario(payer);
+
+        if(!tipoUsuarioValido){
+            throw new TypeUserException();
+        }
+
+        if(!usuarioValido){
+            throw new Exception("Usuário não possui saldo suficiente");
+        }
 
         Transferencia transferencia = new Transferencia();
         transferencia.setValorTransferencia(transferenciaDTO.valorTransferencia());
         transferencia.setPayer(payer);
         transferencia.setPayee(payee);
+
 
         servicoAutorizador.autorizarTransferencia();
 

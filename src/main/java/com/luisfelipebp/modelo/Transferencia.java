@@ -1,5 +1,7 @@
 package com.luisfelipebp.modelo;
 
+import com.luisfelipebp.modelo.DTO.TransferenciaDTO;
+import com.luisfelipebp.modelo.DTO.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
