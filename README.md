@@ -15,14 +15,16 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
 - **Método:** POST
 - **Endpoint:** `/usuarios`
 - **Descrição:** Cria um novo usuário com os seguintes parâmetros no corpo da requisição:
-  {
+ ```
+ {
     "nome": "Nome do Usuário",
     "cpf": "12345678901",
     "email": "usuario@example.com",
     "senha": "senha123",
     "saldo": 100.0,
     "tipo": "normal"
-} 
+}
+```
 
 ### Transações
 
@@ -30,12 +32,13 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
 - **Método:** POST
 - **Endpoint:** `/transaction`
 - **Descrição:** Realiza uma transação entre dois usuários, passando os seguintes parâmetros no corpo da requisição:
-    {
+```
+ {
     "value": 100.0,
     "payer": 4,
     "payee": 15
 }
-
+```
 ## Configuração Padrão
 
 - **URL Base:** `http://localhost:8080`
