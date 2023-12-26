@@ -25,7 +25,7 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
     "tipo": "COMUM"
 }
 ```
-Obs: O tipo deve ser COMUM ou LOJISTA.
+O tipo deve ser COMUM ou LOJISTA.
 
 ### Transações
 
@@ -35,13 +35,13 @@ Obs: O tipo deve ser COMUM ou LOJISTA.
 - **Descrição:** Realiza uma transação entre dois usuários, passando os seguintes parâmetros no corpo da requisição:
 ```
  {
-    "value": 100.0,
-    "payer": 4,
-    "payee": 15
+    "valorTransferencia": 100.0,
+    "payer_id": 1,
+    "payee_id": 2
 }
 ```
 
-Obs: Usuários do tipo LOJISTAS só recebem dinheiro, apenas usuários do tipo COMUM podem enviar e receber o dinheiro.
+Obs: Usuários do tipo LOJISTAS só recebem dinheiro, apenas usuários do tipo COMUM podem enviar e receber dinheiro.
 
 ## Configuração Padrão
 
