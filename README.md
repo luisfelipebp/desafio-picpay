@@ -25,6 +25,7 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
     "tipo": "COMUM"
 }
 ```
+Obs: O tipo deve ser COMUM ou LOJISTA.
 
 ### Transações
 
@@ -39,6 +40,9 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
     "payee": 15
 }
 ```
+
+Obs: Usuários do tipo LOJISTAS só recebem dinheiro, apenas usuários do tipo COMUM podem enviar e receber o dinheiro.
+
 ## Configuração Padrão
 
 - **URL Base:** `http://localhost:8080`
