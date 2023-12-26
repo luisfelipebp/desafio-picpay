@@ -22,7 +22,7 @@ Esta é uma API RESTful para gerenciamento de usuários e transações. Permite 
     "email": "usuario@example.com",
     "senha": "senha123",
     "saldo": 100.0,
-    "tipo": "normal"
+    "tipo": "COMUM"
 }
 ```
 
